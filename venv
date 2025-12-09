@@ -1,0 +1,13 @@
+#!/bin/bash
+# Activates the virtual environment located at ../venv
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VENV_PATH="$SCRIPT_DIR/../venv"
+
+if [ ! -f "$VENV_PATH/bin/activate" ]; then
+    echo "❌ Virtual environment not found at $VENV_PATH"
+    echo "   Run ./setup_venv.sh to create it."
+    return 1 2>/dev/null || exit 1
+fi
+
+source "$VENV_PATH/bin/activate"
